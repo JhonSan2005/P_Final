@@ -21,7 +21,7 @@ if (isset($_GET['seccion'])) {
 }
 
 // Verificar si la sección solicitada es válida
-$secciones_permitidas = ["seccion00","seccion01","seccion1", "seccion2", "seccion3", "seccion4", "seccion5", "seccion6", "seccion7", "seccion8", "seccion9", "seccion10", "seccion11", "seccion12", "seccion13"]; // Ejemplo de secciones permitidas
+$secciones_permitidas = ["seccion00","seccion01","seccion1", "seccion2", "seccion3", "seccion4", "seccion5", "seccion6", "seccion7", "seccion8", "seccion9", "seccion10", "seccion11", "seccion12", "seccion13", "seccion20"]; // Ejemplo de secciones permitidas
 if (!in_array($seccion, $secciones_permitidas)) {
     // Redirigir a seccion2 si la sección no está permitida
     header("Location: controlador.php?seccion=seccion2");

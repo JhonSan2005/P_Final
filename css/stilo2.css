@@ -5,6 +5,8 @@ body {
     height: 20vh;
     background-color: #ddd;
 }
+
+
 .left-box {
     background: #FF0000;
 }
@@ -70,8 +72,6 @@ body {
     margin-top: 200px;
   }
  
-
-
 
 /* formulario de admistrador de suvbir productos */
 .container2 {

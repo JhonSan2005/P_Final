@@ -20,7 +20,7 @@
         ?>
         <link href="../css/estilo.css" rel="stylesheet">
         <?php
-    } elseif ($seccion == 'seccion00' ||$seccion == 'seccion2' || $seccion == 'seccion3' || $seccion == 'seccion4' || $seccion == 'seccion5' || $seccion == 'seccion6' || $seccion == 'seccion7'|| $seccion == 'seccion8'|| $seccion == 'seccion11'|| $seccion == 'seccion12' || $seccion == 'seccion01') {
+    } elseif ($seccion == 'seccion00' ||$seccion == 'seccion2' || $seccion == 'seccion3' || $seccion == 'seccion4' || $seccion == 'seccion5' || $seccion == 'seccion6' || $seccion == 'seccion7'|| $seccion == 'seccion8'|| $seccion == 'seccion11'|| $seccion == 'seccion12' || $seccion == 'seccion01' || $seccion == 'seccion20') {
         ?>
         <link href="../css/stilo2.css" rel="stylesheet">
         <?php
@@ -38,7 +38,7 @@
 
 <?php
 // Verificar el valor de $seccion y incluir el archivo PHP correspondiente
-if ($seccion == 'seccion00' || $seccion == 'seccion1' || $seccion == 'seccion2' || $seccion == 'seccion3' || $seccion == 'seccion4'|| $seccion == 'seccion5'|| $seccion == 'seccion6'|| $seccion == 'seccion7'|| $seccion == 'seccion8'|| $seccion == 'seccion9' || $seccion == 'seccion10'|| $seccion == 'seccion11'|| $seccion == 'seccion12'|| $seccion == 'seccion13' || $seccion == 'seccion01') {
+if ($seccion == 'seccion00' || $seccion == 'seccion1' || $seccion == 'seccion2' || $seccion == 'seccion3' || $seccion == 'seccion4'|| $seccion == 'seccion5'|| $seccion == 'seccion6'|| $seccion == 'seccion7'|| $seccion == 'seccion8'|| $seccion == 'seccion9' || $seccion == 'seccion10'|| $seccion == 'seccion11'|| $seccion == 'seccion12'|| $seccion == 'seccion13' || $seccion == 'seccion01'|| $seccion == 'seccion20') {
     include($seccion . ".php");
 } else {
     // Manejar el caso donde $seccion no coincide con ningún valor esperado
