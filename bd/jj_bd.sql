@@ -41,10 +41,16 @@ password varchar(50)not null,
 primary key(correo)
 )
 
+
+SELECT * FROM clientes WHERE correo = correo;
+
 select*from clientes ;
-insert into admin (correo,password) value ('admin@gmail.com','admin123')
+
+insert into admin (correo,password) value ('admin@gmail.com','admin123');
 
 
+
+select*from productos ;
 CREATE TABLE `productos` (
   `id_producto` int NOT NULL AUTO_INCREMENT,
   `nombre_producto` varchar(100) NOT NULL,
@@ -58,7 +64,7 @@ CREATE TABLE `productos` (
   FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`)
 );
 
-drop table productos;
+
 
 INSERT INTO `productos` (id_producto,nombre_producto,precio,impuesto,stock,id_categoria,imagen_url) VALUE ('4','Yamalube','50000','1','20','1','aceitico.png');
 
