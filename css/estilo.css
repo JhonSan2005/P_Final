@@ -5,7 +5,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     width: auto;
-    height: 40vh;
+    height: 30vh;
     background-color: #D2D2D2;
 } 
 .contenedor-audio{
@@ -42,7 +42,7 @@ button:hover {
 
 
 #nuestros-programas {
-    margin-top: -70px;
+    margin-top: 0px;
     background-color: #D2D2D2;
     color: white;
     text-align: center;
