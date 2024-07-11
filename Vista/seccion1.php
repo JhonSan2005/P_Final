@@ -14,7 +14,7 @@ $seccion1 = "Inicio";
             </div>
             <div class="col-md-4 col-12 mb-1 mb-md-0">
                 <div class="input-group">
-                <input type="text" name="buscador" id="buscador" placeholder="Buscar...">
+            
                     <div class="input-group-append">
                         
                     </div>
@@ -64,6 +64,24 @@ $seccion1 = "Inicio";
         </div>
     </div>
 </section> 
+<div class="container_busqueda">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-4 col-12 mb-1 mb-md-0">
+            <div class="input-group">
+                <input type="text" name="buscador" id="buscador" placeholder="Buscar..." class="form-control">
+                <div class="input-group-append">
+                    <select id="id_categoria" name="id_categoria" class="form-input" required>
+                     <option value="">Ordenar por precio</option>
+                     <option value="1">Mas barato al mas caro</option>
+                     <option value="2">Mas caro al mas barato</option>
+                     
+                    </select>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
 <div class="container articulos">
     <div class="row">
         <?php

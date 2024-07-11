@@ -63,7 +63,7 @@ button:hover {
     background-position: center center;
     background-size: cover;
     padding: 50px 0px;
-    margin-bottom: 80px;
+    margin-bottom: 20px;
     border-radius: 25px;
 }
 
@@ -123,11 +123,6 @@ footer .container {
 }
 /* Estilo para las cartas en la sección #nuestros-programas */
 #nuestros-programas .carta {
-    background-position: center;
-    background-size: cover;
-    padding: 50px 20px; /* Ajuste el padding según sea necesario */
-    border-radius: 25px;
-    height: 100%; /* Ajusta la altura de las cartas */
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil */
     transition: transform 0.3s ease; /* Transición suave */
 }
@@ -189,8 +184,8 @@ footer .container {
 }
 
 .container.mt-5 .card-img-top {
-    width: 230px;
-    height: 300px; /* Puedes ajustar la altura aquí */
+    width: 10px;
+    height: 30px; /* Puedes ajustar la altura aquí */
     object-fit: cover;
     margin: 0 auto; /* Centra la imagen horizontalmente */
     display: block; /* Hace que la imagen sea un bloque */
@@ -244,4 +239,9 @@ li{
 .row {
     display: flex;
     flex-wrap: wrap;
+}
+
+/* div de busqueda */
+.container_busqueda{
+    margin-top: -100px;
 }
