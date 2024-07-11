@@ -14,9 +14,9 @@ $seccion1 = "Inicio";
             </div>
             <div class="col-md-4 col-12 mb-1 mb-md-0">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar" aria-describedby="button-addon2">
+                <input type="text" name="buscador" id="buscador" placeholder="Buscar...">
                     <div class="input-group-append">
-                        <button class="btn btn-warning" type="button" id="button-addon2">Buscar</button>
+                        
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@ $seccion1 = "Inicio";
         <iframe width="50%" height="200" src="https://www.youtube.com/embed/x4fSOEsy0d0?si=tlSZfgQ1Y0it_HXd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 </div>
-<section id="nuestros-programas">
+ <section id="nuestros-programas">
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-6 mb-4">
@@ -63,12 +63,36 @@ $seccion1 = "Inicio";
             </div>
         </div>
     </div>
-</section>
-<?php  
-include ("../Controlador/productos.php");
-?>
+</section> 
+<div class="container articulos">
+    <div class="row">
+        <?php
+        include_once("C_productos.php");
+        ?>
+        <?php if (is_array($productos) && count($productos) > 0): ?>
+            <?php foreach ($productos as $producto): ?>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="producto">
+                        <!-- Mostrar la imagen si está disponible -->
+                        <?php if (!empty($producto['imagen_url'])): ?>
+                            <img src="http://localhost/Sitio/img/<?php echo $producto['imagen_url']; ?>" alt="<?php echo $producto['nombre_producto']; ?>" class="img-fluid">
+                        <?php else: ?>
+                            <p>Imagen no disponible</p>
+                        <?php endif; ?>
+                        <ul id="listaArticulos">
+                        <li class="articulo"><?php echo $producto['nombre_producto']; ?></li>
+                        <p><strong>Precio:</strong> $<?php echo $producto['precio']; ?></p>
+                        <p><strong>Descripción:</strong> <?php echo $producto['descripcion']; ?></p>
+                        </ul>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p><?php echo $productos; ?></p>
+        <?php endif; ?>
     </div>
-
+</div>
+<script src="../js/app.js"></script>
 <footer>
     <div class="container">
         <div class="row">

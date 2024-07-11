@@ -68,3 +68,6 @@ $seccion2 = "Iniciar Sesión";
             </div>
         </div>
     </div>
+       <!-- Script para mostrar SweetAlert -->
+       <script src="htps://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../JS/alerta_bloqueo.js"></script>

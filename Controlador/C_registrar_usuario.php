@@ -1,29 +1,33 @@
-
 <?php
-require_once("../Modelo/funciones.php");
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+require_once("../Modelo/Login.php");
 
-// Check if the request method is POST and 'action' parameter is 'register'
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'register') {
-    // Retrieve form data
+// Verificar si se han enviado los datos del formulario de registro
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Obtener los datos del formulario y pasarlos a la función registerUser
     $documento = $_POST['documento'];
     $nombre = $_POST['nombre'];
     $correo = $_POST['correo'];
     $password = $_POST['password'];
 
-    // Database connection details
-    $host = 'localhost';
-    $dbname = 'jj_bd'; // Your database name
-    $username = 'root'; // Your database username
-    $db_password = ''; // Your database password
+    // Llamar a la función registerUser
+    $registro_exitoso = Login::registerUser($documento, $nombre, $correo, $password);
 
-    // Create an instance of the User class
-    $user = new Registrar_usuario($host, $username, $db_password, $dbname);
-
-    // Register the user
-    $result = $user->registrar($documento, $nombre, $correo, $password);
-
-    // Display the result
-    echo $result;
+    if ($registro_exitoso) {
+        // Redirigir a alguna página de éxito
+        header("Location: ../Vista/index.php");
+        exit(); // Asegura que se detenga la ejecución después de redirigir
+    } else {
+        echo "<script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+                footer: '<a href=\"#\">Why do I have this issue?</a>'
+            });
+        </script>";
+    }
 }
-
 ?>

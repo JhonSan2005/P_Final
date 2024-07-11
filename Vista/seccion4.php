@@ -16,7 +16,7 @@ $seccion4 = "Admin";
         <source src="mp3/1-formula-motor.mp3">
 
 
-    </audio>
+</audio>
     
 
     <!----------------------- Contenedor principal -------------------------->

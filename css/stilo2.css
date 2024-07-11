@@ -151,6 +151,10 @@ font-weight: bold;
 .verifica img {
 margin-top: 90px;
 }
+
+.verifica h1 {
+  margin-top: 70px;
+  }
 p {
 font-size: 18px;
 line-height: 1.5;
@@ -161,11 +165,11 @@ margin-top: 30px;
 
 
 .negativo img{
-  margin-top: 10px;
+  margin-top: 40px;
   height: 300px;
 
 }
 .negativo{
-  margin-top: 150px;
+  margin-top: 240px;
   
 }

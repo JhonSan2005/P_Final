@@ -68,12 +68,6 @@ $seccion9 = "index_de _prodcutos";
     </div>
 </section>
 
-<div class="repuestos">
-     <?php  
-include ("../Controlador/productos.php");
-?>
-    </div>
-
 <footer>
     <div class="container">
         <div class="row">

@@ -1,46 +1,49 @@
 <?php
-require_once("../Modelo/funciones.php");
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+require_once("../Modelo/Producto.php");
 
-// Verificar si el método de la solicitud es POST y el parámetro 'action' es 'agregar'
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'agregar') {
-    // Recibir y sanitizar los datos del formulario (ejemplo)
-    $product_name = filter_input(INPUT_POST, 'product_name', FILTER_SANITIZE_STRING);
-
-    // Directorio donde se guardará la imagen (ruta relativa)
-    $target_dir = "../Sitio/img/";
-
-    // Nombre del archivo y su ruta de destino
-    $target_file = $target_dir . basename($_FILES["product_image"]["name"]);
-
-    // Verificar si el archivo es una imagen real
-    $check = getimagesize($_FILES["product_image"]["tmp_name"]);
-    if($check === false) {
-        die("El archivo no es una imagen.");
-    }
-
-    // Verificar el tipo de archivo
+// Verificar si se han enviado los datos del formulario de agregar producto
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] == 'agregar') {
+    // Aquí debes obtener los datos del formulario y pasarlos a la función agregarProducto
+    $id_producto = $_POST['id_producto'];
+    $nombre_producto = $_POST['nombre_producto'];
+    $precio = $_POST['product_price'];
+    $impuesto = $_POST['product_tax'];
+    $stock = $_POST['product_stock'];
+    $id_categoria = $_POST['id_categoria'];
+    $descripcion = $_POST['product_description'];
+    
+    // Manejo de la imagen
+    $imagen = $_FILES['product_image']['name'];
+    $target_dir = "../img/";
+    $target_file = $target_dir . basename($imagen);
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    
+    // Verificar el formato de la imagen
     if($imageFileType != "jpg" && $imageFileType != "png") {
-        die("Solo se permiten archivos JPG y PNG.");
+        echo "Solo se permiten archivos JPG y PNG.";
+        exit;
     }
-
-    // Mover el archivo subido a la carpeta de destino
-    if (!move_uploaded_file($_FILES["product_image"]["tmp_name"], $target_file)) {
-        die("Hubo un error subiendo la imagen. Verifica los permisos del directorio.");
+    
+    // Mover la imagen a la carpeta de destino
+    if (!move_uploaded_file($_FILES['product_image']['tmp_name'], $target_file)) {
+        echo "Error al subir la imagen.";
+        exit;
     }
-    // Datos de conexión a la base de datos
-    $host = 'localhost';
-    $dbname = 'jj_bd'; // Nombre de tu base de datos
-    $username = 'root'; // Nombre de usuario de tu base de datos
-    $db_password = ''; // Contraseña de tu base de datos
+    
+    $registro_exitoso = Producto::agregarProducto($id_producto, $nombre_producto, $precio, $impuesto, $stock, $id_categoria, $descripcion, $imagen);
 
-    // Crear una instancia de la clase Agregar_producto
-    $producto = new Agregar_producto($host, $username, $db_password, $dbname);
-
-    // Agregar el producto
-    $result = $producto->agregar($product_id, $product_name, $product_price, $product_tax, $product_stock, $product_category, $product_description, $target_file);
-
-    // Mostrar el resultado
-    echo $result;
+    if ($registro_exitoso) {
+        // Redirigir a alguna página de éxito
+        header("location: ../Vista/index.php");
+    } else {
+        // Manejar el caso de registro fallido
+        echo "Error al agregar el producto.";
+    }
+} else {
+    // Cargar la vista de agregar producto si no se han enviado datos
+    header("location: ../Controladores/controlador.php?seccion=seccion3");
 }
 ?>
