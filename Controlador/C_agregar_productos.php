@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
         exit;
     }
     
-    $registro_exitoso = Producto::agregarProducto($id_producto, $nombre_producto, $precio, $impuesto, $stock, $id_categoria, $descripcion, $imagen);
+    $registro_exitoso = Productos::agregarProducto($id_producto, $nombre_producto, $precio, $impuesto, $stock, $id_categoria, $descripcion, $imagen);
 
     if ($registro_exitoso) {
         // Redirigir a alguna página de éxito

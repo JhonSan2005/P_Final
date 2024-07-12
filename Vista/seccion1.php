@@ -85,7 +85,7 @@ $seccion1 = "Inicio";
 <div class="container articulos">
     <div class="row">
         <?php
-        include_once("C_productos.php");
+        include_once("C_ver_productos.php");
         ?>
         <?php if (is_array($productos) && count($productos) > 0): ?>
             <?php foreach ($productos as $producto): ?>

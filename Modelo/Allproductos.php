@@ -1,12 +1,12 @@
 <?php
 require_once('../config/Conexion.php');
 
-class Producto {
+class Productos extends Conexion{
    
     
 
-    public static function agregarProducto($id_producto, $nombre_producto, $precio, $impuesto, $stock, $id_categoria, $descripcion, $imagen) {
-        $conexion = Conexion::conectar();
+    public static function addroducto($id_producto, $nombre_producto, $precio, $impuesto, $stock, $id_categoria, $descripcion, $imagen) {
+        $conexion = self::conectar();
         $consulta = $conexion->prepare("INSERT INTO productos (id_producto, nombre_producto, precio, impuesto, stock, id_categoria, descripcion, imagen_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $consulta->bind_param('ssddisss', $id_producto, $nombre_producto, $precio, $impuesto, $stock, $id_categoria, $descripcion, $imagen);
         $resultado = $consulta->execute();
@@ -15,18 +15,11 @@ class Producto {
     }
 }
 
-class Productos{
-    public static function mostrarProductos(){
 
-        $conexion = conexion::conectar();
-        if ($conexion === "no se pudo conectar") {
-            return $conexion;
-        }
+    public static function showproducts(){
+        $conexion = self::conectar();
         $consulta = "SELECT * from productos";
-
         $resultado = $conexion->query($consulta);
-
-
         if ($resultado->num_rows >0){
 
             $productos = array();
@@ -37,10 +30,10 @@ class Productos{
         }
         return $productos;
     }else{
-        return "NBo hay Productos";
+        return "No hay Productos";
     }
       
         
     }
-}
+
 ?>
