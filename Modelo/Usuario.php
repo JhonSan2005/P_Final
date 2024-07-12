@@ -5,7 +5,7 @@ include_once('../helpers/Conexion_db.php');
 class Usuario extends Conexion{
 
     public static function validarlogin($correo, $password) {
-        $conexion = selef::conectar();
+        $conexion = self::conectar();
         $consulta = $conexion->prepare("SELECT * FROM clientes WHERE correo = ? LIMIT 1");
         $consulta->bind_param('s', $correo);
         $consulta->execute();
@@ -21,7 +21,7 @@ class Usuario extends Conexion{
             }
         } 
     }
-}
+
 
 
 
@@ -38,5 +38,6 @@ class Usuario extends Conexion{
 
 
 
+}
 
 ?>

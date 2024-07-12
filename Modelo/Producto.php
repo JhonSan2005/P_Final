@@ -13,7 +13,7 @@ class Producto extends Conexion{
 
         return $resultado;
     }
-}
+
 
 
     public static function mostrarproductos(){
@@ -34,6 +34,8 @@ class Producto extends Conexion{
     }
       
         
+    }
+    
     }
 
 ?>
