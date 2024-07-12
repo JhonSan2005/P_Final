@@ -3,7 +3,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-require_once("../Modelo/Alluser.php");
+include_once("../Modelo/User.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener y sanitizar los datos del formulario
@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($correo && $password) {
         // Intentar iniciar sesión
-        $login_exitoso = Login::loginuser($correo, $password);
+        $login_exitoso = Alluser::loginuser($correo, $password);
 
         if ($login_exitoso) {
             // Redirigir a la página de éxito

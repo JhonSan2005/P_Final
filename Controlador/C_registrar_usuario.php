@@ -2,7 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-require_once("../Modelo/Alluser.php");
+include_once("../Modelo/User.php");
 
 // Verificar si se han enviado los datos del formulario de registro
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Llamar a la función registerUser
-    $registro_exitoso = Register::registeruser($documento, $nombre, $correo, $password);
+    $registro_exitoso = Alluser::registeruser($documento, $nombre, $correo, $password);
 
     if ($registro_exitoso) {
         // Redirigir a alguna página de éxito

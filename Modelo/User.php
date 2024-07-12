@@ -2,8 +2,8 @@
 
 include_once('../helpers/Conexion_db.php');
 
-class Login extends Conexion{
-    
+class Alluser extends Conexion{
+
     public static function loginuser($correo, $password) {
         $conexion = selef::conectar();
         $consulta = $conexion->prepare("SELECT * FROM clientes WHERE correo = ? LIMIT 1");
