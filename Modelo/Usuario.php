@@ -2,7 +2,7 @@
 
 include_once('../helpers/Conexion_db.php');
 
-class Alluser extends Conexion{
+class Usuario extends Conexion{
 
     public static function loginuser($correo, $password) {
         $conexion = selef::conectar();

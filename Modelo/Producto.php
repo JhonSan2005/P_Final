@@ -1,7 +1,7 @@
 <?php
 require_once('../config/Conexion.php');
 
-class Allproducts extends Conexion{
+class Producto extends Conexion{
    
     
 

@@ -2,7 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-include_once("../Modelo/Productos.php");
+include_once("../Modelo/Producto.php");
 
 // Verificar si se han enviado los datos del formulario de agregar producto
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] == 'agregar') {
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
         exit;
     }
     
-    $registro_exitoso = Allproducts::addproducts($id_producto, $nombre_producto, $precio, $impuesto, $stock, $id_categoria, $descripcion, $imagen);
+    $registro_exitoso = Producto::addproducts($id_producto, $nombre_producto, $precio, $impuesto, $stock, $id_categoria, $descripcion, $imagen);
 
     if ($registro_exitoso) {
         // Redirigir a alguna página de éxito
