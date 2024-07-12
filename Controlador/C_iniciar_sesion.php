@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($correo && $password) {
         // Intentar iniciar sesión
-        $login_exitoso = Usuario::loginuser($correo, $password);
+        $login_exitoso = Usuario::validarlogin($correo, $password);
 
         if ($login_exitoso) {
             // Redirigir a la página de éxito

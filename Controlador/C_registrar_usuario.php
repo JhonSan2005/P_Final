@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Llamar a la función registerUser
-    $registro_exitoso = Usuario::registeruser($documento, $nombre, $correo, $password);
+    $registro_exitoso = Usuario::registrarusuarios($documento, $nombre, $correo, $password);
 
     if ($registro_exitoso) {
         // Redirigir a alguna página de éxito

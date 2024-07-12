@@ -4,7 +4,7 @@ include_once('../helpers/Conexion_db.php');
 
 class Usuario extends Conexion{
 
-    public static function loginuser($correo, $password) {
+    public static function validarlogin($correo, $password) {
         $conexion = selef::conectar();
         $consulta = $conexion->prepare("SELECT * FROM clientes WHERE correo = ? LIMIT 1");
         $consulta->bind_param('s', $correo);
@@ -26,7 +26,7 @@ class Usuario extends Conexion{
 
 
    
-    public static function registeruser($documento,$nombre, $correo, $password) {
+    public static function registrarusuarios($documento,$nombre, $correo, $password) {
         $conexion = self::conectar();
         $consulta = $conexion->prepare("INSERT INTO clientes (documento, nombre, correo, password) VALUES (?, ?, ?, ?)");
         $consulta->bind_param('ssss', $documento, $nombre, $correo, $password);
