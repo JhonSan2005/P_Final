@@ -1,6 +1,20 @@
 <?php
 require_once('../config/Conexion.php');
 
+class Producto {
+   
+    
+
+    public static function agregarProducto($id_producto, $nombre_producto, $precio, $impuesto, $stock, $id_categoria, $descripcion, $imagen) {
+        $conexion = Conexion::conectar();
+        $consulta = $conexion->prepare("INSERT INTO productos (id_producto, nombre_producto, precio, impuesto, stock, id_categoria, descripcion, imagen_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $consulta->bind_param('ssddisss', $id_producto, $nombre_producto, $precio, $impuesto, $stock, $id_categoria, $descripcion, $imagen);
+        $resultado = $consulta->execute();
+
+        return $resultado;
+    }
+}
+
 class Productos{
     public static function mostrarProductos(){
 
@@ -29,5 +43,4 @@ class Productos{
         
     }
 }
-
 ?>
