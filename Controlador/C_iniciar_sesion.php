@@ -3,7 +3,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-include_once("../Modelo/User.php");
+include_once("../Modelo/Alluser.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener y sanitizar los datos del formulario

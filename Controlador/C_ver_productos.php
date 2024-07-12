@@ -1,5 +1,5 @@
 <?php
-include_once("../Modelo/Products.php");
+include_once("../Modelo/Allproducts.php");
 
 // Llamar a la función para mostrar los productos
 $productos = Allproducts::showproducts();
