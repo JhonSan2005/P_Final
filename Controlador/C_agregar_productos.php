@@ -2,7 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-include_once("../Modelo/Allproducts.php");
+include_once("../Modelo/Productos.php");
 
 // Verificar si se han enviado los datos del formulario de agregar producto
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] == 'agregar') {

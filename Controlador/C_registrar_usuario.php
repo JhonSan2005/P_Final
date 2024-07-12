@@ -2,7 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-include_once("../Modelo/Alluser.php");
+include_once("../Modelo/Usuarios.php");
 
 // Verificar si se han enviado los datos del formulario de registro
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
