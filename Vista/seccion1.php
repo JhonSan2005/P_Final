@@ -85,9 +85,9 @@ $seccion1 = "Inicio";
 <div class="container articulos">
     <div class="row">
         <?php
-        include_once("C_productos.php");
+        include_once("C_ver_productos.php");
         ?>
-        <?php if (is_array($productos) && count($productos) > 0): ?>
+        <?php if ($productos): ?>
             <?php foreach ($productos as $producto): ?>
                 <div class="col-md-4 col-sm-6 mb-4">
                     <div class="producto">
@@ -106,7 +106,7 @@ $seccion1 = "Inicio";
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <p><?php echo $productos; ?></p>
+            <p><?php echo "No hay Productos para Mostrar"; ?></p>
         <?php endif; ?>
     </div>
 </div>

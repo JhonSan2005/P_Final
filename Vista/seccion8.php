@@ -15,7 +15,7 @@ $seccion8 = "SubirProductos";
     <div class="container2">
     <h1 class="form-title">Agregar Productos</h1>
     
-      <form action="../Controlador/C_agregar_producto.php" method="post" enctype="multipart/form-data">
+      <form action="../Controlador/C_agregar_productos.php" method="post" enctype="multipart/form-data">
      <input type="hidden" name="action" value="agregar">
         <div class="form-group">
             <label for="id_producto" class="form-label">ID Producto</label>
